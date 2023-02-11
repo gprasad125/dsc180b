@@ -3,7 +3,9 @@ import openai
 import time
 
 def classify_sentiment(df, prompt):
-    
+    """
+    This function classify sentiments of all Tweets in the input dataframe using GPT-3.
+    """
     i = 0
     sentiments = []
     
@@ -13,10 +15,9 @@ def classify_sentiment(df, prompt):
         tweet = row.text
         tweet_id = row.id
     
-        prompt_text = prompt + tweet
+        prompt_text = prompt + tweet #prompt that feeds into GPT-3
         
         try:
-    
             response = openai.Completion.create(
               model="text-davinci-003",
               prompt=prompt_text,
@@ -25,19 +26,24 @@ def classify_sentiment(df, prompt):
               frequency_penalty=0,
               presence_penalty=0
             )
-            sentiment = response['choices'][0]['text'].strip()
+            sentiment = response['choices'][0]['text'].strip() # extract answer from model output
             sentiments.append((tweet_id,sentiment))
             i += 1
             
-        except Exception as e:
+        except Exception as e: #stop for 1 minute if maximum token/minute has been reach
             time.sleep(60)
     
     return sentiments
 
 def extract_sentiment(text):
+    """
+    This function cleans the output from GPT-3 and extract only the outputed sentiment.
+    """
+    # model output is expected to begin with "Answer". If not, clean the extra characters.
     if text[0] != 'A':
         start_idx = text.find('Answer')
         text = text[start_idx:]
+    
     text = text.lower().splitlines()[0]
     if 'negative' in text:
         return 'negative'

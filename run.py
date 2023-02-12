@@ -5,6 +5,7 @@ import os
 
 from src.dataset.make_dataset import *
 from src.models.sentiment import *
+from src.models.classifier import *
 
 def main(targets):
 
@@ -12,10 +13,22 @@ def main(targets):
         fp = os.path.join('data/test', 'data.csv')
 
     try:
-        df = load_df_sentiment(fp)
+
+        # load dataframes 
+        df_sentiment = load_df_sentiment(fp)
+        df_classifier = load_df_relevance(fp)
+
+        # set up API keys
         api_key = targets[1]
-        out = calc_sentiment(df, api_key)
-        return out
+
+        # run models
+        sentiment = calc_sentiment(df_sentiment, api_key)
+        classification = find_relevance(df_classifier, api_key)
+
+        # evaluate
+        accuracy = evaluate(classification)
+
+        return sentiment, accuracy
 
     except Exception as e:
         print(e)

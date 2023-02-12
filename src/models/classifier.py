@@ -119,3 +119,5 @@ def evaluate(df, outpath):
 
     fig = cm_plot.get_figure()
     fig.savefig(outpath)
+
+    return accuracy

@@ -12,11 +12,15 @@ This project continues the work by exploring the same topic through the lens of 
 ## Necessary Configurations:
 
 You will *need* an API key from OpenAI to utilize the GPT-3 model.
-Sign up for an account and get a key [here]
+Sign up for an account and get a key [here](https://openai.com/api/)
 
 You can then pass your API Key in as a command line argument to our run script like so:
 ```
 python run.py [target_1] [api key value]
+```
+For example, you can run the code on test data by running this script:
+```
+python run.py test [api key value]
 ```
 
 ## Data Source:

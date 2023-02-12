@@ -1,5 +1,17 @@
 import pandas as pd
 
+####### CLEANING FUNCTIONS ########
+
+def find_relevance(bucket):
+    """
+    Finds relevance of Tweet from man-made encoding.
+    Bucket 1 contains relevant Tweets, and all others are irrelevant.
+    """
+
+    if bucket == "1":
+        return True
+    return False
+
 def clean_data(df_raw):
     """
     This function takes in a Pandas DataFrame, drops extra columns from the original dataframe,
@@ -25,7 +37,26 @@ def score_to_label(score):
     elif score > 3:
         return 'positive'
 
-def load_csv(path):
+###################################
+
+
+def load_df_relevance(inpath, outpath):
+    """
+    Loads raw data from an inpath. Dependent on command line system arguments.
+    Processes data with cleaning functions, and saves it to a CSV file for ML & EDA.
+    """
+
+    # load csv & specify columns
+    df = pd.read_csv(inpath)
+    df = df[["text", "country", "Bucket"]]
+
+    # clean columns
+    df["Bucket"] = df["Bucket"].apply(find_relevance)
+
+    # save cleaned df to new csv file
+    df.to_csv("outpath", index = False)
+
+def load_df_sentiment(path):
     """
     This function takes in the path of csv file, loads csv into dataframe,
     and returns the cleaned dataframe
@@ -36,3 +67,5 @@ def load_csv(path):
     df_cleaned['sentiment'] = df_cleaned.SentimentScore.apply(score_to_label)
 
     return df_cleaned
+
+

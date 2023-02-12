@@ -3,9 +3,8 @@ import warnings
 import json
 import os
 
-from src.make_dataset import *
-from src.sentiment_data import *
-from src.sentiments import *
+from src.dataset.make_dataset import *
+from src.models.sentiment import *
 
 def main(targets):
 
@@ -13,7 +12,7 @@ def main(targets):
         fp = os.path.join('data/test', 'data.csv')
 
     try:
-        df = load_csv(fp)
+        df = load_df_sentiment(fp)
         api_key = targets[1]
         out = calc_sentiment(df, api_key)
         return out

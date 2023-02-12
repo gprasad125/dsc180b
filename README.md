@@ -16,7 +16,7 @@ Sign up for an account and get a key [here](https://openai.com/api/)
 
 You can then pass your API Key in as a command line argument to our run script like so:
 ```
-python run.py [target_1] [api key value]
+python run.py [target_data] [api key value]
 ```
 For example, you can run the code on test data by running this script:
 ```
@@ -54,8 +54,8 @@ Not entirely cleaned up yet. Cleaned versions of this code will be found inside 
 Contains the Python scripts needed to run the project, divided as such:
 - data: `make_dataset.py` cleans and processes the raw data
 - models: 
-    - classifier.py: GPT-3 powered classifier to find "relevant" Tweets (i.e, Tweets about Chinese governmental impact on America.)
-    - sentiment.py: GPT-3 powered sentiment scorer to find "emotion" of Tweet (i.e, is a Tweet favorable or negative towards China?)
+    - `classifier.py`: GPT-3 powered classifier to find "relevant" Tweets (i.e, Tweets about Chinese governmental impact on America.)
+    - `sentiment.py`: GPT-3 powered sentiment scorer to find "emotion" of Tweet (i.e, is a Tweet favorable or negative towards China?)
 
 ### 📜 Files:
 

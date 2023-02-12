@@ -40,14 +40,14 @@ def score_to_label(score):
 ###################################
 
 
-def load_df_relevance(inpath):
+def load_df_relevance(path):
     """
     Loads raw data from an inpath. Dependent on command line system arguments.
-    Processes data with cleaning functions, and saves it to a CSV file for ML & EDA.
+    Processes data with cleaning functions, and returns it to be used. 
     """
 
     # load csv & specify columns
-    df = pd.read_csv(inpath)
+    df = pd.read_csv(path)
     df = df[["text", "country", "Bucket"]]
 
     # clean columns

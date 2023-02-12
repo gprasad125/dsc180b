@@ -9,4 +9,5 @@ USER root
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-CMD ["python", "run.py"]
+CMD ["/bin/bash"]
+#CMD ["python", "run.py"]

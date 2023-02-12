@@ -16,7 +16,7 @@ def main(targets):
 
         # load dataframes 
         df_sentiment = load_df_sentiment(fp)
-        df_classifier = load_df_relevance(fp)
+        df_classifier = load_df_relevance(fp, 'data/test/test_out.csv')
 
         # set up API keys
         api_key = targets[1]

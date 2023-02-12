@@ -40,7 +40,7 @@ def score_to_label(score):
 ###################################
 
 
-def load_df_relevance(inpath, outpath):
+def load_df_relevance(inpath):
     """
     Loads raw data from an inpath. Dependent on command line system arguments.
     Processes data with cleaning functions, and saves it to a CSV file for ML & EDA.
@@ -51,10 +51,10 @@ def load_df_relevance(inpath, outpath):
     df = df[["text", "country", "Bucket"]]
 
     # clean columns
-    df["Bucket"] = df["Bucket"].apply(find_relevance)
+    df["Relevant"] = df["Bucket"].apply(find_relevance)
 
     # save cleaned df to new csv file
-    df.to_csv("outpath", index = False)
+    return df
 
 def load_df_sentiment(path):
     """

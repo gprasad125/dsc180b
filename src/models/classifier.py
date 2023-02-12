@@ -1,4 +1,4 @@
-import pandas as pd
+import numpy as np
 import openai
 
 import seaborn as sns
@@ -100,24 +100,7 @@ def find_relevance(df, api_key):
     df["gpt3_answer"] = df["text"].apply(gpt3)
     df["gpt3_answer"] = df["gpt3_answer"].apply(clean_answer)
 
-    return df
-
-def evaluate(df, outpath):
-    """
-    Given a dataframe with both labels and predictions, calculates:
-    - accuracy
-    - confusion matrix
-    Plots confusion matrix thru a Seaborn heatmap. 
-    """
-
-    # find accuracy
-    accuracy = (df["gpt3_answer"] == df["Relevant"]).mean()
-
-    # confusion_matrix
-    cm = pd.crosstab(df["gpt3_answer"], df["Relevant"])
-    cm_plot = sns.heatmap(cm, cmap = "Blues", annot = True, fmt = "1")
-
-    fig = cm_plot.get_figure()
-    fig.savefig(outpath)
+    accuracy = np.mean(df["gpt3_answer"] == df["Relevant"])
+    print(f"The relevance accuracy on this dataset is: {accuracy}.")
 
     return accuracy

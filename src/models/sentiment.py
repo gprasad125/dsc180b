@@ -85,6 +85,6 @@ def calc_sentiment(df, api_key):
     model_df['outputed_sentiment'] = model_df.model_output.apply(extract_sentiment)
 
     accuracy = np.mean(model_df['sentiment'] == model_df['outputed_sentiment'])
-    print(f'The accuracy of classification on this dataset is : {accuracy}.')
+    print(f'The sentiment accuracy on this dataset is : {accuracy}.')
 
     return model_df

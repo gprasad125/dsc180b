@@ -4,8 +4,10 @@
 
 This project covers Tweet sentiment analysis for Tweets originating from US Congresspeople as it relates to China.
 This is an extension to Quarter 1's project found for each researcher below:
-Annie's Q1 codebase
-Gokul's Q1 codebase
+
+[Annie's Q1 codebase](https://github.com/AnnieeeeeF/DSC180A_Project1)
+
+[Gokul's Q1 codebase](https://github.com/gprasad125/dsc180a_project)
 
 This project continues the work by exploring the same topic through the lens of a Large Language Model (LLM) like GPT-3. 
 

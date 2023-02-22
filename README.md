@@ -1,4 +1,4 @@
-# dsc180b
+# Analyzing U.S. Congressional Tweets with OpenAI GPT-3
 
 # Repository for the Spring 2023 Quarter (DSC180b)
 
@@ -16,14 +16,15 @@ This project continues the work by exploring the same topic through the lens of 
 You will *need* an API key from OpenAI to utilize the GPT-3 model.
 Sign up for an account and get a key [here](https://openai.com/api/)
 
-You can then pass your API Key in as a command line argument to our run script like so:
-```
-python run.py [target_data] [api key value]
-```
-For example, you can run the code on test data by running this script:
-```
-python run.py test [api key value]
-```
+You can then pass your API Key to OpenAI in one of two ways:
+
+1. Export your key by running the following in your command line:
+
+`export OPENAI_API_KEY=...`
+
+2. Create a .env file in the root directory and paste in your key like so:
+
+`OPENAI_API_KEY=...`
 
 ## Data Source:
 

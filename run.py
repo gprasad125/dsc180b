@@ -23,12 +23,9 @@ def main(targets):
         df_sentiment = load_df_sentiment(fp)
         df_classifier = load_df_relevance(fp)
 
-        # set up API keys
-        api_key = targets[1]
-
         # run models & evaluate
-        sentiment = calc_sentiment(df_sentiment, api_key)
-        relevance = find_relevance(df_classifier, api_key)
+        sentiment = calc_sentiment(df_sentiment)
+        relevance = find_relevance(df_classifier)
 
         # return metrics of evaluation
         return sentiment, relevance

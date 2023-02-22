@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import openai
 import time
+import os
 
 def classify_sentiment(df, prompt):
     """
@@ -53,7 +54,7 @@ def extract_sentiment(text):
     elif 'neutral' in text:
         return 'neutral'
 
-def calc_sentiment(df, api_key):
+def calc_sentiment(df):
     question_prompt = """Determine the given tweet's sentiment toward China. Return either positive, neutral, or negative.
 
     Example 1: "The humanitarian, security and health threats personified in the coronavirus are being exacerbated by \
@@ -78,7 +79,7 @@ def calc_sentiment(df, api_key):
 
     Given these examples, value the following tweet: """
 
-    openai.api_key = api_key
+    openai.api_key = os.environ.get("OPENAI_API_KEY")
     model_output = classify_sentiment(df, question_prompt)
     output_df = pd.DataFrame(model_output, columns=['id', 'model_output'])
     model_df = df.merge(output_df, on='id', how='inner')

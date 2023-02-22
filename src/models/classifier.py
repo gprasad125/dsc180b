@@ -1,6 +1,6 @@
 import numpy as np
 import openai
-
+import os
 import seaborn as sns
 
 def clean_answer(response):
@@ -89,13 +89,13 @@ def gpt3(tweet):
     except: 
         return "Error with GPT-3. Try again later. "
 
-def find_relevance(df, api_key):
+def find_relevance(df):
     """
     Apply GPT-3 completion to each Tweet in the dataset.
     Returns a dataframe with both labels and predictions. 
     """
 
-    openai.api_key = api_key
+    openai.api_key = os.environ.get("OPENAI_API_KEY")
 
     df["gpt3_answer"] = df["text"].apply(gpt3)
     df["gpt3_answer"] = df["gpt3_answer"].apply(clean_answer)

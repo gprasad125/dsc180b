@@ -4,6 +4,10 @@ import openai
 import time
 import os
 
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
+
 def classify_sentiment(df, prompt):
     """
     This function classify sentiments of all Tweets in the input dataframe using GPT-3.

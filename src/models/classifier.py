@@ -3,6 +3,10 @@ import openai
 import os
 import seaborn as sns
 
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
+
 def clean_answer(response):
     """
     Function to clean a GPT-3 response.

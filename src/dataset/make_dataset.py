@@ -53,6 +53,8 @@ def load_df_relevance(path):
     # clean columns
     df["Relevant"] = df["Bucket"].apply(find_relevance)
 
+    print ('... data loaded! ... \n')
+
     # save cleaned df to new csv file
     return df
 
@@ -61,6 +63,8 @@ def load_df_sentiment(path):
     This function takes in the path of csv file, loads csv into dataframe,
     and returns the cleaned dataframe
     """
+
+    print ('... loading the data ... \n')
 
     df_raw = pd.read_csv(path)
     df_cleaned = clean_data(df_raw)

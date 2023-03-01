@@ -6,6 +6,7 @@ import os
 from src.dataset.make_dataset import *
 from src.models.sentiment import *
 from src.models.classifier import *
+from src.visuals.eda import *
 
 def main(targets):
 
@@ -21,11 +22,14 @@ def main(targets):
 
         # load dataframes 
         df_sentiment = load_df_sentiment(fp)
-        df_classifier = load_df_relevance(fp)
+        df_relevance = load_df_relevance(fp)
+
+        # create EDA visuals
+        generate_visuals(df_sentiment, df_relevance)
 
         # run models & evaluate
         sentiment = calc_sentiment(df_sentiment)
-        relevance = find_relevance(df_classifier)
+        relevance = find_relevance(df_relevance)
 
         # return metrics of evaluation
         return sentiment, relevance

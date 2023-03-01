@@ -40,7 +40,7 @@ def score_to_label(score):
 ###################################
 
 
-def load_df_relevance(path):
+def load_df_relevance(path, outpath):
     """
     Loads raw data from an inpath. Dependent on command line system arguments.
     Processes data with cleaning functions, and returns it to be used. 
@@ -53,23 +53,22 @@ def load_df_relevance(path):
     # clean columns
     df["Relevant"] = df["Bucket"].apply(find_relevance)
 
-    print ('... data loaded! ... \n')
-
     # save cleaned df to new csv file
+    df.to_csv(outpath, index=False)
     return df
 
-def load_df_sentiment(path):
+def load_df_sentiment(path, outpath):
     """
     This function takes in the path of csv file, loads csv into dataframe,
     and returns the cleaned dataframe
     """
 
-    print ('... loading the data ... \n')
-
     df_raw = pd.read_csv(path)
     df_cleaned = clean_data(df_raw)
     df_cleaned['sentiment'] = df_cleaned.SentimentScore.apply(score_to_label)
 
+    # save cleaned df to new csv file
+    df_cleaned.to_csv(outpath, index=False)
     return df_cleaned
 
 

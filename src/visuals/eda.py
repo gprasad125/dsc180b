@@ -10,8 +10,6 @@ def get_upload_path(variable):
 
 def generate_visuals(df_sentiment, df_relevance):
 
-    print('... now creating some visuals ... \n')
-
     # create visuals
     sentiment_hist = df_sentiment['sentiment'].value_counts().plot(kind='bar')
     plt.title('Distribution of Sentiment')
@@ -22,8 +20,5 @@ def generate_visuals(df_sentiment, df_relevance):
     relevance_hist = df_relevance['Relevant'].value_counts().plot(kind='bar')
     plt.title('Distribution of Relevance')
     plt.savefig('data/results/' + nameof(relevance_hist) + '.png')
-
-    print('... visuals created! you can see them in data/results ... \n')
-    
 
     return

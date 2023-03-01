@@ -16,7 +16,7 @@ This project continues the work by exploring the same topic through the lens of 
 You will *need* an API key from OpenAI to utilize the GPT-3 model.
 Sign up for an account and get a key [here](https://openai.com/api/)
 
-You can then pass your API Key to OpenAI in one of two ways:
+You can then pass your API Key to our scripts in one of two ways:
 
 1. Export your key by running the following in your command line:
 

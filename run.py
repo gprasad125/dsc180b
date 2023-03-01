@@ -6,26 +6,42 @@ import os
 from src.dataset.make_dataset import *
 from src.models.sentiment import *
 from src.models.classifier import *
+from src.visuals.eda import *
 
 def main(targets):
 
     # test data 
     if 'test' in targets:
         fp = os.path.join('data/test', 'data.csv')
+        op_r = os.path.join('data/out', 'df_relevance.csv')
+        op_s = os.path.join('data/out', 'df_sentiment.csv')
+
 
     # all data 
     else:
         fp = os.path.join('data/raw', 'SentimentLabeled_10112022.csv')
+        op_r = os.path.join('data/out', 'df_relevance.csv')
+        op_s = os.path.join('data/out', 'df_sentiment.csv')
 
     try:
 
         # load dataframes 
-        df_sentiment = load_df_sentiment(fp)
-        df_classifier = load_df_relevance(fp)
+        df_sentiment = load_df_sentiment(fp, op_s)
+        df_relevance = load_df_relevance(fp, op_r)
+
+        # create EDA visuals
+        generate_visuals(df_sentiment, df_relevance)
 
         # run models & evaluate
         sentiment = calc_sentiment(df_sentiment)
-        relevance = find_relevance(df_classifier)
+        relevance = find_relevance(df_relevance)
+
+        # print info
+        print(
+            'The project has finished running! You can find the following information:\n \
+                1. Generated visuals in data/visuals.\n \
+                2. Processed data in data/out'
+        )
 
         # return metrics of evaluation
         return sentiment, relevance

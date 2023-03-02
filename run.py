@@ -13,17 +13,14 @@ def main(targets):
     # test data 
     if 'test' in targets:
         fp = os.path.join('data/test', 'data.csv')
-        op_r = os.path.join('data/out', 'df_relevance.csv')
-        op_s = os.path.join('data/out', 'df_sentiment.csv')
-
-
     # all data 
     else:
         fp = os.path.join('data/raw', 'SentimentLabeled_10112022.csv')
-        op_r = os.path.join('data/out', 'df_relevance.csv')
-        op_s = os.path.join('data/out', 'df_sentiment.csv')
 
     try:
+
+        op_r = os.path.join('data/out', 'df_relevance.csv')
+        op_s = os.path.join('data/out', 'df_sentiment.csv')
 
         # load dataframes 
         df_sentiment = load_df_sentiment(fp, op_s)

@@ -19,6 +19,7 @@ def main(targets):
 
     try:
 
+        # set outpaths for cleaned data
         op_r = os.path.join('data/out', 'df_relevance.csv')
         op_s = os.path.join('data/out', 'df_sentiment.csv')
 
@@ -28,7 +29,7 @@ def main(targets):
 
         # create EDA visuals
         generate_visuals(df_sentiment, df_relevance)
-
+        
         # run models & evaluate
         sentiment = calc_sentiment(df_sentiment)
         relevance = find_relevance(df_relevance)

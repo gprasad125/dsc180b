@@ -101,6 +101,10 @@ def find_relevance(df):
 
     openai.api_key = os.environ.get("OPENAI_API_KEY")
 
+    # run samples
+    if df.shape[0] > 5: 
+        df = df.sample(n = 100)
+
     df["gpt3_answer"] = df["text"].apply(gpt3)
     df["gpt3_answer"] = df["gpt3_answer"].apply(clean_answer)
 

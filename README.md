@@ -9,7 +9,7 @@ This is an extension to Quarter 1's project found for each researcher below:
 
 [Gokul's Q1 codebase](https://github.com/gprasad125/dsc180a_project)
 
-This project continues the work by exploring the same topic through the lens of a Large Language Model (LLM) like GPT-3. 
+This project continues the work by exploring the same topic through the lens of a Large Language Model (LLM). 
 
 ## Necessary Configurations:
 

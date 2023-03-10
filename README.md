@@ -55,10 +55,15 @@ Not entirely cleaned up yet. Cleaned versions of this code will be found inside 
 
 #### src
 Contains the Python scripts needed to run the project, divided as such:
-- data: `make_dataset.py` cleans and processes the raw data
+- data: 
+    - `make_dataset.py` cleans and processes the raw data
 - models: 
     - `classifier.py`: GPT-3 powered classifier to find "relevant" Tweets (i.e, Tweets about Chinese governmental impact on America.)
     - `sentiment.py`: GPT-3 powered sentiment scorer to find "emotion" of Tweet (i.e, is a Tweet favorable or negative towards China?)
+- visuals: 
+    - `eda.py`: Generates summary visuals for the two cleaned dataframes going into modeling. Not the full EDA of the dataset. For that, check under `notebooks/EDA.ipynb`
+- notebooks:
+    - `nb_functions.py`: All necessary functions for notebook report + visuals. Similar to the code in other folders with slight modifications
 
 ### 📜 Files:
 

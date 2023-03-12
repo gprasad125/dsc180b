@@ -63,7 +63,7 @@ Contains the Python scripts needed to run the project, divided as such:
 - visuals: 
     - `eda.py`: Generates summary visuals for the two cleaned dataframes going into modeling. Not the full EDA of the dataset. For that, check under `notebooks/EDA.ipynb`
 - notebooks:
-    - `nb_functions.py`: All necessary functions for notebook report + visuals. Similar to the code in other folders with slight modifications
+    - `nb_functions.py`: All necessary functions for notebook report + visuals. Uses the code from other folders with slight modifications to fit an ipynb environment. 
 
 ### 📜 Files:
 

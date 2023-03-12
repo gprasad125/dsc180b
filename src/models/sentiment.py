@@ -84,6 +84,11 @@ def calc_sentiment(df):
     Given these examples, value the following tweet: """
 
     openai.api_key = os.environ.get("OPENAI_API_KEY")
+
+    # run samples
+    if df.shape[0] > 10: 
+        df = df.sample(n = 100)
+        
     model_output = classify_sentiment(df, question_prompt)
     output_df = pd.DataFrame(model_output, columns=['id', 'model_output'])
     model_df = df.merge(output_df, on='id', how='inner')
